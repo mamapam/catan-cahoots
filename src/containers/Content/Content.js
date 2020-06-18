@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import axios from '../../axios-players';
 
 import PlayersTable from '../../components/PlayersTable/PlayersTable';
+import StackedBarChart from '../../components/StackedBarChart/StackedBarChart';
 
 class Content extends Component {
   state= {
@@ -33,12 +34,7 @@ class Content extends Component {
             <PlayersTable playerData={this.state.players} />
           </Grid>
           <Grid item sm={12} md={6}>
-            this is the stacked bar graph 
-            this is the stacked bar graph 
-            this is the stacked bar graph 
-            this is the stacked bar graph 
-            this is the stacked bar graph 
-            this is the stacked bar graph 
+            <StackedBarChart data={this.state.players} /> 
           </Grid>
         </Grid>
         <Grid container direction="row">
