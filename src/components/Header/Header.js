@@ -13,16 +13,19 @@ const Header = () => {
   const classes = useStyles();
 
   return(
-    <AppBar position="static">
-      <Toolbar>
-        <Grid item md={1} />
-        <Typography className={classes.typographyStyle}>Catan Cahoots!</Typography>
-        <IconButton>
-          <AccountCircleIcon />
-        </IconButton>
-        <Grid item md={1} />
-      </Toolbar>
-    </AppBar>
+    <header>
+      <AppBar position="static">
+        <Toolbar>
+          <Grid item md={1} />
+          <Typography className={classes.typographyStyle}>Catan Cahoots!</Typography>
+          <IconButton>
+            <AccountCircleIcon />
+          </IconButton>
+          <Grid item md={1} />
+        </Toolbar>
+      </AppBar>
+    </header>
+    
   );
 }
 
