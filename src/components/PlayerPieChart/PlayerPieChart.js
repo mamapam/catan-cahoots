@@ -17,7 +17,7 @@ const PlayerPieChart = (props) => {
 
   return(
     <Auxiliary>
-      <Typography>{props.data.name}</Typography>
+      <Typography align="center">{props.data.name}</Typography>
       <ResponsiveContainer width="100%" height={400}>
         <PieChart>
           <Pie
