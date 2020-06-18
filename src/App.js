@@ -12,7 +12,7 @@ function App() {
         <Header />
       </Grid>
 
-      <Grid item container>
+      <Grid item container >
         <Grid item xs={false} md={1} />
         <Grid item sm={12} md={10} >
           <Content />

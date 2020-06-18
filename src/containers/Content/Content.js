@@ -4,6 +4,7 @@ import axios from '../../axios-players';
 
 import PlayersTable from '../../components/PlayersTable/PlayersTable';
 import StackedBarChart from '../../components/StackedBarChart/StackedBarChart';
+import PlayerPieChart from '../../components/PlayerPieChart/PlayerPieChart';
 
 class Content extends Component {
   state= {
@@ -38,45 +39,13 @@ class Content extends Component {
           </Grid>
         </Grid>
         <Grid container direction="row">
-          <Grid item sm={12} md={4}>
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-            this is p1s pie graph
-          </Grid>
-          <Grid item sm={12} md={4}>
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-            this is p2s pie graph
-          </Grid>
-          <Grid item sm={12} md={4}>
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-            this is p3s pie graph
-          </Grid>
+          {this.state.players.map(player => {
+            return(
+              <Grid key={player.id} item sm={12} md={4}>
+                <PlayerPieChart data={player} />
+              </Grid>
+            );
+          })}
         </Grid>
       </main>
     );
