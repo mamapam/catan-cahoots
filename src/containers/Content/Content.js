@@ -20,6 +20,8 @@ class Content extends Component {
       }
       this.setState({players: fetchedPlayers});
       console.log(this.state.players);
+    }).catch(err => {
+      console.log(`An error occurred: ${err}`);
     });
   }
 
