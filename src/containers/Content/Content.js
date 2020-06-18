@@ -19,7 +19,7 @@ class Content extends Component {
         });
       }
       this.setState({players: fetchedPlayers});
-      console.log(this.state);
+      console.log(this.state.players);
     });
   }
 
@@ -28,7 +28,7 @@ class Content extends Component {
       <main>
         <Grid container direction="row">
           <Grid item sm={12} md={6}>
-            <PlayersTable />
+            <PlayersTable playerData={this.state.players} />
           </Grid>
           <Grid item sm={12} md={6}>
             this is the stacked bar graph 

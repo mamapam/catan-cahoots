@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const PlayersTable = () => {
+const PlayersTable = (props) => {
   const classes = useStyles();
 
   return(
@@ -29,21 +29,15 @@ const PlayersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell component="th" scope="row">mario</TableCell>
-            <TableCell align="right">2</TableCell>
-            <TableCell align="right">3</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" scope="row">OUF</TableCell>
-            <TableCell align="right">2</TableCell>
-            <TableCell align="right">3</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell component="th" scope="row">Pascal</TableCell>
-            <TableCell align="right">2</TableCell>
-            <TableCell align="right">3</TableCell>
-          </TableRow>
+          {props.playerData.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">{row.wins}</TableCell>
+                <TableCell align="right">{row.losses}</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>
