@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
+import axios from '../../axios-players';
 
 import PlayersTable from '../../components/PlayersTable/PlayersTable';
 
 class Content extends Component {
+  state= {
+    players: []
+  }
+
+  componentDidMount() {
+    axios.get('/players.json').then(response => {
+      const fetchedPlayers = [];
+      for(let key in response.data) {
+        fetchedPlayers.push({
+          ...response.data[key],
+          id: key
+        });
+      }
+      this.setState({players: fetchedPlayers});
+      console.log(this.state);
+    });
+  }
+
   render() {
     return(
       <main>
