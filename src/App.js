@@ -6,7 +6,7 @@ import Content from './containers/Content/Content';
 
 function App() {
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" spacing={2}>
 
       <Grid item>
         <Header />

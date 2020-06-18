@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 
+import PlayersTable from '../../components/PlayersTable/PlayersTable';
+
 class Content extends Component {
   render() {
     return(
       <main>
         <Grid container direction="row">
           <Grid item sm={12} md={6}>
-            this is the table component here
-            this is the table component here
-            this is the table component here
-            this is the table component here
-            this is the table component here
-            this is the table component here
-            this is the table component here
+            <PlayersTable />
           </Grid>
           <Grid item sm={12} md={6}>
             this is the stacked bar graph 
