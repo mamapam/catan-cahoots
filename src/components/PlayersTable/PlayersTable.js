@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,6 +8,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const useStyles = makeStyles(() => ({
   table: {
@@ -34,8 +37,24 @@ const PlayersTable = (props) => {
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
-                <TableCell align="right">{row.wins}</TableCell>
-                <TableCell align="right">{row.losses}</TableCell>
+                <TableCell align="right">
+                  <IconButton aria-label="delete">
+                    <RemoveIcon />
+                  </IconButton>
+                  {row.wins}
+                  <IconButton aria-label="delete">
+                    <AddIcon />
+                  </IconButton>
+                </TableCell>
+                <TableCell align="right">
+                  <IconButton aria-label="delete">
+                    <RemoveIcon />
+                  </IconButton>
+                  {row.losses}
+                  <IconButton aria-label="delete">
+                    <AddIcon />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
         </TableBody>
