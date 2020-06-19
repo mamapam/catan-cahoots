@@ -27,12 +27,48 @@ class Content extends Component {
     });
   }
 
+  winsIncreaseHandler = (playerId) => {
+    // create object of state for that playerId to increase in wins
+    const updatedPlayers = this.state.players;
+    let indexOfUpdatedPlayer = null;
+    for(let i=0; i<this.state.players.length; i++) {
+      if(this.state.players[i].id === playerId) {
+        updatedPlayers[i] = {...this.state.players[i], wins: this.state.players[i].wins + 1}
+        indexOfUpdatedPlayer = i;
+      }
+    }
+    // setstate
+    this.setState({players: updatedPlayers});
+    // put request to db
+    axios.put(`/players/${playerId}.json`, this.state.players[indexOfUpdatedPlayer])
+      .then(res => {
+        console.log(res);
+      });
+  }
+  
+  winsDecreaseHandler = (playerId) => {
+    console.log(`playerId of ${playerId} win was decreased`);
+  }
+
+  lossesIncreaseHandler = (playerId) => {
+    console.log(`playerId of ${playerId} losses was increased`);
+  }
+  
+  lossesDecreaseHandler = (playerId) => {
+    console.log(`playerId of ${playerId} losses was decreased`);
+  }
+
   render() {
     return(
       <main>
         <Grid container direction="row">
           <Grid item sm={12} md={6}>
-            <PlayersTable playerData={this.state.players} />
+            <PlayersTable 
+              playerData={this.state.players} 
+              winsIncrease={this.winsIncreaseHandler} 
+              winsDecrease={this.winsDecreaseHandler}
+              lossesIncrease={this.lossesIncreaseHandler}
+              lossesDecrease={this.lossesDecreaseHandler} />
           </Grid>
           <Grid item sm={12} md={6}>
             <StackedBarChart data={this.state.players} /> 

@@ -38,20 +38,20 @@ const PlayersTable = (props) => {
                   {row.name}
                 </TableCell>
                 <TableCell align="right">
-                  <IconButton aria-label="delete">
+                  <IconButton onClick={() => props.winsDecrease(row.id)}>
                     <RemoveIcon />
                   </IconButton>
                   {row.wins}
-                  <IconButton aria-label="delete">
+                  <IconButton onClick={() => props.winsIncrease(row.id)}>
                     <AddIcon />
                   </IconButton>
                 </TableCell>
                 <TableCell align="right">
-                  <IconButton aria-label="delete">
+                  <IconButton onClick={() => props.lossesDecrease(row.id)}>
                     <RemoveIcon />
                   </IconButton>
                   {row.losses}
-                  <IconButton aria-label="delete">
+                  <IconButton onClick={() => props.lossesIncrease(row.id)}>
                     <AddIcon />
                   </IconButton>
                 </TableCell>
