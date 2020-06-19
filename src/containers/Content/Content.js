@@ -47,15 +47,64 @@ class Content extends Component {
   }
   
   winsDecreaseHandler = (playerId) => {
-    console.log(`playerId of ${playerId} win was decreased`);
+    // create object of state for that playerId to increase in wins
+    const updatedPlayers = this.state.players;
+    let indexOfUpdatedPlayer = null;
+    for(let i=0; i<this.state.players.length; i++) {
+      if(this.state.players[i].id === playerId) {
+        if(this.state.players[i].wins === 0) 
+          return; 
+        updatedPlayers[i] = {...this.state.players[i], wins: this.state.players[i].wins - 1}
+        indexOfUpdatedPlayer = i;
+      }
+    }
+    // setstate
+    this.setState({players: updatedPlayers});
+    // put request to db
+    axios.put(`/players/${playerId}.json`, this.state.players[indexOfUpdatedPlayer])
+      .then(res => {
+        console.log(res);
+      });
   }
 
   lossesIncreaseHandler = (playerId) => {
-    console.log(`playerId of ${playerId} losses was increased`);
+    // create object of state for that playerId to increase in wins
+    const updatedPlayers = this.state.players;
+    let indexOfUpdatedPlayer = null;
+    for(let i=0; i<this.state.players.length; i++) {
+      if(this.state.players[i].id === playerId) {
+        updatedPlayers[i] = {...this.state.players[i], losses: this.state.players[i].losses + 1}
+        indexOfUpdatedPlayer = i;
+      }
+    }
+    // setstate
+    this.setState({players: updatedPlayers});
+    // put request to db
+    axios.put(`/players/${playerId}.json`, this.state.players[indexOfUpdatedPlayer])
+      .then(res => {
+        console.log(res);
+      });
   }
   
   lossesDecreaseHandler = (playerId) => {
-    console.log(`playerId of ${playerId} losses was decreased`);
+    // create object of state for that playerId to increase in wins
+    const updatedPlayers = this.state.players;
+    let indexOfUpdatedPlayer = null;
+    for(let i=0; i<this.state.players.length; i++) { 
+      if(this.state.players[i].id === playerId) {
+        if(this.state.players[i].losses === 0) 
+          return;
+        updatedPlayers[i] = {...this.state.players[i], losses: this.state.players[i].losses - 1}
+        indexOfUpdatedPlayer = i;
+      }
+    }
+    // setstate
+    this.setState({players: updatedPlayers});
+    // put request to db
+    axios.put(`/players/${playerId}.json`, this.state.players[indexOfUpdatedPlayer])
+      .then(res => {
+        console.log(res);
+      });
   }
 
   render() {
