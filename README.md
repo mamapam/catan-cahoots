@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/19d27a88-fc10-47f4-9ac4-e844823a6a4b/deploy-status)](https://app.netlify.com/sites/catan-cahoots/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
